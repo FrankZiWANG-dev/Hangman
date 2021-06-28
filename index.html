@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+    
+<body>
+    <h1> Guess the champion!</h1>
+    <h2> A League of Legends Hangman Game</h2>
+
+    <div class="container" id="game">
+
+        <div class="wrong" id="wrong">
+            <h3>You already tried : </h3>
+            <div class="WrongLetters" id="WrongLetters"> 
+                
+            </div>
+        </div>
+
+        <div class="guess" id="guess">
+            <h3>The word is:  </h3>
+            <div class="RightLetters" id="RightLetters">
+
+            </div>
+        </div>
+
+        <div class="hangman" id="hangman">
+            Placeholder hangman
+        </div>
+
+        <div class="input" id="input">
+                <label for="InputText">Enter a capital letter to guess! </label> <br/>
+                <input type="text" class="InputText" id="InputText"><br/>
+                <button type="button" id="try"> Try! </button>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
