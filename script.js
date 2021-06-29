@@ -90,7 +90,7 @@ document.getElementById("try").addEventListener("click", () =>{
         console.log(CurrentLetters);
         console.log(LettersToGuess);
         //debugging
-        document.getElementById("RightLetters").innerHTML = CurrentWord;
+        document.getElementById("RightLetters").innerHTML = "The word is : " + CurrentWord;
         // update state of word to guess
           
     }
@@ -131,15 +131,15 @@ document.getElementById("try").addEventListener("click", () =>{
         //display an image according to number of wrong tries and alert lose when lost
     };
 
-    for (i = 0; i < LettersToGuess.length; i++) {
-		if (CurrentLetters[i] !== LettersToGuess[i]) {
-            break;
-        }
-        else {
-            alert("You win!");
-        }
-	}  
-    //DOESNT WORK: win if one letter correct. Check if won (if any letter doesn't match, no loop. if last letter matches, win.)
+    // for (i = 0; i < LettersToGuess.length; i++) {
+	// 	if (CurrentLetters[i] !== LettersToGuess[i]) {
+    //         break;
+    //     }
+    //     else {
+    //         alert("You win!");
+    //     }
+	// }  
+    //Check if won (if any letter doesn't match, no loop. if last letter matches, win.)
 
 });
-// Need to add hangman, message when succeeded, message when losing, update readme, add colors and images
+// need to fix message when succeeded (DOESNT WORK: win if one letter correct), update readme, finishing touches
