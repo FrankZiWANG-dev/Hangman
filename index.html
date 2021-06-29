@@ -5,40 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Benne&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
     
 <body>
-    <h1> Lil Devil Teemo's Challenge!</h1>
+    <h1> Teemo's Challenge!</h1>
     <h2> A League of Legends Hangman Game</h2>
 
     <div class="container" id="introduction">
         <button type='button' id="InstructionsButton" onclick="toggleText()">Click for instructions</button>
-        <p id="instructions">Lil Devil Teemo has challenged you to guess the name of a champion from League Of Legends.<br/>
-        Choose a capital letter you believe is contained in the name to guess. <br/>
-        Type it into the text box below, then click "Try!" to attempt a guess.<br/>
-        If you're right, the letter will appear in the word.<br/>
-        If you're wrong, part of Teemo will start appearing from the portal.<br/>
-        Move onto the next guess, and remember, there's only so many mistakes you can make (6, actually) before Teemo devours your soul...<br/>
+        <p id="instructions">You wandered into a dark cave, where Teemo lied in wait. He challenges you to a game: <br/>
+        "<i><b>Name the champion</b> from League Of Legends I'm thinking of, or I shall devour your soul!<br/>
+        <b>Tell me a letter!</b> If the letter is in the name, I shall tell you where. If not, I will start revealing my true form!<br/>
+        I hope for your sake that you'll guess the word before 6 wrong tries...</i>"<br/>
         </p>
 
     </div>
 
     <div class="container" id="game">
 
-        <div class="wrong" id="wrong">
-            <h3>You already tried : </h3>
-            <div class="WrongLetters" id="WrongLetters"> 
-                
-            </div>
+        <div class="WrongLetters" id="WrongLetters">
+                You already tried :
         </div>
 
-        <div class="guess" id="guess">
-            <h3>The word is:  </h3>
-            <div class="RightLetters" id="RightLetters">
-
-            </div>
+        <div class="RightLetters" id="RightLetters">
+                The word is :
         </div>
 
         <div class="hangman" id="hangman">
@@ -48,7 +45,7 @@
         <div class="input" id="input">
                 <label for="InputText">Enter a capital letter to guess! </label> <br/>
                 <input type="text" class="InputText" id="InputText"><br/>
-                <button type="button" id="try"> Try! </button>
+                <button type="button" class="try" id="try"> Try! </button>
         </div>
 
     </div>

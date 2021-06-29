@@ -1,3 +1,4 @@
+document.getElementById("instructions").style.display = "none";
 function toggleText() {
     var text = document.getElementById("instructions");
     if (text.style.display === "none") {
@@ -56,7 +57,7 @@ for (x=0; x<LettersToGuess.length; x++){
 ChangeCurrentWord();
 //Update Current state of guess to starting point
 
-document.getElementById("RightLetters").innerHTML = CurrentWord;
+document.getElementById("RightLetters").innerHTML = "The word is : " + CurrentWord;
 //Display number of letters to guess
 
 
@@ -91,7 +92,7 @@ document.getElementById("try").addEventListener("click", () =>{
         // add guessed letter to list of mistakes
         ChangeWrong();
         //update list of mistakes
-        document.getElementById("WrongLetters").innerHTML = Wrong;
+        document.getElementById("WrongLetters").innerHTML = "You already tried : " + Wrong;
         // update list of mistakes shown on screen
     };
 
