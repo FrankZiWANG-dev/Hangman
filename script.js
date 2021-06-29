@@ -1,4 +1,11 @@
+// Below are variables used
 document.getElementById("instructions").style.display = "none";
+document.getElementById("1").style.display = "none";
+document.getElementById("2").style.display = "none";
+document.getElementById("3").style.display = "none";
+document.getElementById("4").style.display = "none";
+document.getElementById("5").style.display = "none";
+document.getElementById("6").style.display = "none";
 function toggleText() {
     var text = document.getElementById("instructions");
     if (text.style.display === "none") {
@@ -7,6 +14,7 @@ function toggleText() {
       text.style.display = "none";
     }
   }
+//textblock for instructions
 
 var Champions = ["AATROX","AHRI","AKALI","ALISTAR","AMUMU","ANIVIA","ANNIE","APHELIOS","ASHE","AURELION SOL","AZIR","BARD","BLITZCRANK","BRAND","BRAUM","CAITLYN","CAMILLE","CASSIOPEIA","CHO GATH","CORKI","DARIUS","DIANA","DR MUNDO","DRAVEN","EKKO","ELISE","EVELYNN","EZREAL","FIDDLESTICKS","FIORA","FIZZ","GALIO","GANGPLANK","GAREN","GNAR","GRAGAS","GRAVES","HECARIM","HEIMERDINGER","ILLAOI","IRELIA","IVERN","JANNA","JARVAN IV","JAX","JAYCE","JHIN","JINX","KAI SA","KALISTA","KARMA","KARTHUS","KASSADIN","KATARINA","KAYLE","KAYN","KENNEN","KHA ZIX","KINDRED","KLED","KOG MAW","LEBLANC","LEE SIN","LEONA","LILLIA","LISSANDRA","LUCIAN","LULU","LUX","MALPHITE","MALZAHAR","MAOKAI","MASTER YI","MISS FORTUNE","MORDEKAISER","MORGANA","NAMI","NASUS","NAUTILUS","NEEKO","NIDALEE","NOCTURNE","NUNU AND WILLUMP","OLAF","ORIANNA","ORNN","PANTHEON","POPPY","PYKE","QIYANA","QUINN","RAKAN","RAMMUS","REK SAI","RELL","RENEKTON","RENGAR","RIVEN","RUMBLE","RYZE","SAMIRA","SEJUANI","SENNA","SERAPHINE","SETT","SHACO","SHEN","SHYVANA","SINGED","SION","SIVIR","SKARNER","SONA","SORAKA","SWAIN","SYLAS","SYNDRA","TAHM KENCH","TALIYAH","TALON","TARIC","TEEMO","THRESH","TRISTANA","TRUNDLE","TRYNDAMERE","TWISTED FATE","TWITCH","UDYR","URGOT","VARUS","VAYNE","VEIGAR","VEL KOZ","VI","VIKTOR","VLADIMIR","VOLIBEAR","WARWICK","WUKONG","XAYAH","XERATH","XIN ZHAO","YASUO","YONE","YORICK","YUUMI","ZAC","ZED","ZIGGS","ZILEAN","ZOE","ZYRA"];
 //Array with possible words
@@ -44,6 +52,7 @@ function ChangeWrong(){
     }
 }
 
+//Below is the code that makes the game work
 for (x=0; x<LettersToGuess.length; x++){
     if (LettersToGuess[x] == " "){
         CurrentLetters.push (" ");
@@ -67,35 +76,70 @@ console.log(LettersToGuess);
 
 document.getElementById("try").addEventListener("click", () =>{
 //create click function to check letter currently being guessed  
-    if (WordToGuess.includes(document.getElementById("InputText").value)){
+    if (WordToGuess.includes(document.getElementById("InputText").value.toUpperCase())){
     //When the word has the letter the player guessed
         for (i = 0; i < LettersToGuess.length; i++){ 
-            if (LettersToGuess[i] === document.getElementById("InputText").value) {  
-                CurrentLetters[i] = document.getElementById("InputText").value;
+            if (LettersToGuess[i] === document.getElementById("InputText").value.toUpperCase()) {  
+                CurrentLetters[i] = document.getElementById("InputText").value.toUpperCase();
                 ChangeCurrentWord();
                 
             }
             // add newly guessed letter to current state of guessed word
         };
         console.log(CurrentWord);
+        console.log(CurrentLetters);
+        console.log(LettersToGuess);
         //debugging
         document.getElementById("RightLetters").innerHTML = CurrentWord;
         // update state of word to guess
-
-        if (CurrentLetters == LettersToGuess) {alert("Congrats!");}
           
     }
 
     else {
     // if the word doesn't have the guessed letter
-        WrongLetters.push(document.getElementById("InputText").value);
+        WrongLetters.push(document.getElementById("InputText").value.toUpperCase());
         // add guessed letter to list of mistakes
         ChangeWrong();
         //update list of mistakes
         document.getElementById("WrongLetters").innerHTML = "You already tried : " + Wrong;
         // update list of mistakes shown on screen
+
+        if (WrongLetters.length == 1){
+            document.getElementById("1").style.display = "block";
+        }
+        if (WrongLetters.length == 2){
+            document.getElementById("1").style.display = "none";
+            document.getElementById("2").style.display = "block";
+        }
+        if (WrongLetters.length == 3){
+            document.getElementById("2").style.display = "none";
+            document.getElementById("3").style.display = "block";
+        }
+        if (WrongLetters.length == 4){
+            document.getElementById("3").style.display = "none";
+            document.getElementById("4").style.display = "block";
+        }
+        if (WrongLetters.length == 5){
+            document.getElementById("4").style.display = "none";
+            document.getElementById("5").style.display = "block";
+        }
+        if (WrongLetters.length == 6){
+            document.getElementById("5").style.display = "none";
+            document.getElementById("6").style.display = "block";
+            alert("You lose!");
+        }
+        //display an image according to number of wrong tries and alert lose when lost
     };
 
-})
+    for (i = 0; i < LettersToGuess.length; i++) {
+		if (CurrentLetters[i] !== LettersToGuess[i]) {
+            break;
+        }
+        else {
+            alert("You win!");
+        }
+	}  
+    //DOESNT WORK: win if one letter correct. Check if won (if any letter doesn't match, no loop. if last letter matches, win.)
 
+});
 // Need to add hangman, message when succeeded, message when losing, update readme, add colors and images
