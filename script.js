@@ -105,6 +105,7 @@ document.getElementById("try").addEventListener("click", () =>{
         // update list of mistakes shown on screen
 
         if (WrongLetters.length == 1){
+            document.getElementById("0").style.display ="none";
             document.getElementById("1").style.display = "block";
         }
         if (WrongLetters.length == 2){
