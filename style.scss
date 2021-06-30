@@ -1,9 +1,7 @@
 body {
-    // color: #EDB852;
     font-family: 'Benne', serif;
     color: #EDB852;
     text-shadow: -1px -1px #5A3E1E;
-    // background-color:#065D6E;
     text-align: center;
     margin-left: 10%;
     margin-right: 10%;
@@ -12,10 +10,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-// .container {
-//     font-family: 'Benne', serif;
-// }
 
 #instructions {
     background-color: #404138;
@@ -38,53 +32,112 @@ button {
     margin: 5px;
 }
 
-#game {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 30% 70%;
-    grid-gap: 20px;
-    background-color: #404138;
-    padding: 15px;
-    margin: 20px;
-    border: 3px solid #EDB852;
-    border-radius: 5px;
-    min-height: 450px;
+@media screen and (min-width:768px){
+    #game {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 25% 25% 50%;
+        grid-gap: 20px;
+        background-color: #404138;
+        padding: 15px;
+        margin: 20px;
+        border: 3px solid #EDB852;
+        border-radius: 5px;
+        min-height: 450px;
+    }
+
+    img {
+        max-width: 200px;
+        max-height: 300px;
+        margin: 20px;
+    }
+
+    .WrongLetters {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2 ;
+        padding: 3px;
+        margin: auto;
+    }
+
+    .RightLetters {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        padding: 3px;
+        margin: auto;
+    }
+
+    .hangman {
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
+        padding: 3px;
+        margin: auto;
+    }
+
+    .input {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        padding: 3px;
+        margin: auto;
+    }
 }
 
-img {
-    max-width: 200px;
-    max-height: 300px;
-    margin: 20px;
-}
+@media screen and (max-width: 767px) {
 
-.WrongLetters {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2 ;
-    padding: 3px;
-    margin: auto;
-}
+    #game {
+        display: inline-grid;
+        // grid-template-rows: 50% 50%;
+        // grid-template-rows: 30% 30% 40%;
+        grid-template-rows: 40% 20% 20% 20%;
+        grid-gap: 5px;
+        background-color: #404138;
+        padding: 2px;
+        border: 2px solid #EDB852;
+        border-radius: 5px;
+        max-height: 480px;
+        max-width: 320px;
+    }
+    
+    img {
+        max-width: 100px;
+        max-height: 140px;
+        margin: 2px;
+        margin:auto;
 
-.RightLetters {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    padding: 3px;
-    margin: auto;
-}
+    }
 
-.hangman {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    padding: 3px;
-    margin: auto;
-}
+    .WrongLetters {
+        // grid-column: 1 / 2 ;
+        // grid-row: 1 / 2 ;
+        grid-row: 4 / 5;
+        padding: 1px;
+        margin: auto;
+    }
 
-.input {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    padding: 3px;
-    margin: auto;
-}
+    .RightLetters {
+        // grid-column: 1 / 2 ;
+        // grid-row: 2 / 3;
+        grid-row: 2 / 3;
+        padding: 1px;
+        margin: auto;
+    }
 
+    .hangman {
+        // grid-column: 2 / 3 ;
+        // grid-row: 1 / 4;
+        grid-row: 1 / 2;
+        padding: 1px;
+        margin: auto;
+    }
+
+    .input {
+        // grid-column: 1 / 2 ;
+        // grid-row: 3 / 4;
+        grid-row: 3 / 4;
+        padding: 1px;
+        margin: auto;
+    }
+
+  }
 
 @mixin defeat {
     margin: auto;
@@ -119,6 +172,11 @@ img {
 
 #TransitionVictory {
     @include victory();
+}
+
+#Lightbulb {
+    max-width: 200px;
+    max-height: 300px;
 }
 
 #Victory {

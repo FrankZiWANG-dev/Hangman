@@ -31,14 +31,17 @@
     <div class="container" id="game">
 
         <div class="WrongLetters" id="WrongLetters">
-                You already tried :
+             You already tried :
+             <div id="WrongLettersText"></div>
         </div>
 
         <div class="RightLetters" id="RightLetters">
-                The word is :
+                The champion is :
+                <div id="RightLettersText"></div>
         </div>
 
         <div class="hangman" id="hangman">
+            <span id="Lives"> You can only make 6 more mistakes! </span><br/>
             <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/0.png?raw=true" id="0" alt="Teemo-stage-0">
             <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/1.png?raw=true" id="1" alt="Teemo-stage-1">
             <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/2.png?raw=true" id="2" alt="Teemo-stage-2">
@@ -58,7 +61,7 @@
 
     <div id ="TransitionDefeat">
         Well, well, well... <br/>
-        The champion I was thinking about was <span id="Champion"></span>...<br/>
+        The champion I was thinking about was <span id="ChampionDefeat"></span>...<br/>
         However, it looks like you ran out of guesses... <br/>
         <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/6.png?raw=true" id="6" alt="Teemo-stage-6"><br/>
         <button id="ToDefeat"> Uh-oh... </button>
@@ -76,17 +79,17 @@
 
     <div id ="TransitionVictory">
         After giving a few letters to Teemo, you figure out the last letter! <br/>
-        The champion Teemo is thinking about is <span id="Champion"></span>!! <br/>
-        <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/6.png?raw=true" id="6" alt="Teemo-stage-6"><br/>
+        The champion Teemo is thinking about is <span id="ChampionVictory"></span> !! <br/>
+        <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/Lightbulb.png?raw=true" id="Lightbulb" alt="Lightbulb"><br/>
         <button id="ToVictory"> Yell out the champion's name! </button>
     
     </div>
 
     <div id ="Victory">
-    Upon hearing the answer to his riddle, Teemo's smile disappears from his face. <br/>
+    Upon hearing the answer to his riddle, Teemo gives you a sinister smile. <br/>
     "Very well... I am a Yordle of my word: you are free to go. <br/>
     But know this! I'll get you next time...<br/>
-    <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/Demon-Teemo.jpg?raw=true" id="Demon-Teemo" alt="Demon-Teemo"><br/>
+    <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/Victory.png?raw=true" id="Victory-picture" alt="Victory-picture"><br/>
         <button onclick="window.location.reload();" id="again"> "Why wait, Teemo?"</button>
         <button onclick="self.close()" id="close">No way!! Run away!</button>
 

@@ -1,4 +1,6 @@
-// Below are variables used
+////////////////////////////////////////////////////////////////////
+//Below is the different toggling and hiding settings of elements
+
 document.getElementById("instructions").style.display = "none";
 document.getElementById("1").style.display = "none";
 document.getElementById("2").style.display = "none";
@@ -9,7 +11,7 @@ document.getElementById("TransitionDefeat").style.display = "none";
 document.getElementById("Defeat").style.display = "none";
 document.getElementById("TransitionVictory").style.display = "none";
 document.getElementById("Victory").style.display = "none";
-//hidden boxes and images
+//hidden victory and defeat boxes and images
 
 function toggleText() {
     var text = document.getElementById("instructions");
@@ -21,14 +23,27 @@ function toggleText() {
   }
 //textblock for instructions
 
+
+////////////////////////////////////////////////////////////////////
+//Below are the variables we'll use for the game
+
+
 var Champions = ["AATROX","AHRI","AKALI","ALISTAR","AMUMU","ANIVIA","ANNIE","APHELIOS","ASHE","AURELION SOL","AZIR","BARD","BLITZCRANK","BRAND","BRAUM","CAITLYN","CAMILLE","CASSIOPEIA","CHO GATH","CORKI","DARIUS","DIANA","DR MUNDO","DRAVEN","EKKO","ELISE","EVELYNN","EZREAL","FIDDLESTICKS","FIORA","FIZZ","GALIO","GANGPLANK","GAREN","GNAR","GRAGAS","GRAVES","HECARIM","HEIMERDINGER","ILLAOI","IRELIA","IVERN","JANNA","JARVAN IV","JAX","JAYCE","JHIN","JINX","KAI SA","KALISTA","KARMA","KARTHUS","KASSADIN","KATARINA","KAYLE","KAYN","KENNEN","KHA ZIX","KINDRED","KLED","KOG MAW","LEBLANC","LEE SIN","LEONA","LILLIA","LISSANDRA","LUCIAN","LULU","LUX","MALPHITE","MALZAHAR","MAOKAI","MASTER YI","MISS FORTUNE","MORDEKAISER","MORGANA","NAMI","NASUS","NAUTILUS","NEEKO","NIDALEE","NOCTURNE","NUNU AND WILLUMP","OLAF","ORIANNA","ORNN","PANTHEON","POPPY","PYKE","QIYANA","QUINN","RAKAN","RAMMUS","REK SAI","RELL","RENEKTON","RENGAR","RIVEN","RUMBLE","RYZE","SAMIRA","SEJUANI","SENNA","SERAPHINE","SETT","SHACO","SHEN","SHYVANA","SINGED","SION","SIVIR","SKARNER","SONA","SORAKA","SWAIN","SYLAS","SYNDRA","TAHM KENCH","TALIYAH","TALON","TARIC","TEEMO","THRESH","TRISTANA","TRUNDLE","TRYNDAMERE","TWISTED FATE","TWITCH","UDYR","URGOT","VARUS","VAYNE","VEIGAR","VEL KOZ","VI","VIKTOR","VLADIMIR","VOLIBEAR","WARWICK","WUKONG","XAYAH","XERATH","XIN ZHAO","YASUO","YONE","YORICK","YUUMI","ZAC","ZED","ZIGGS","ZILEAN","ZOE","ZYRA"];
 //Array with possible words
 
 var WordToGuess = Champions[Math.floor(Math.random()*Champions.length)];
 //Random word from array = word to guess
 
+document.getElementById("ChampionDefeat").innerHTML = WordToGuess;
+//Display word to guess in defeat screen
+document.getElementById("ChampionVictory").innerHTML = WordToGuess;
+//Display word to guess in victory screen
+
 var LettersToGuess = WordToGuess.split('');
 //Word to guess split into array of letters
+
+
+
 
 var CurrentLetters = [];
 //Array of letters showing current right and unknown letters
@@ -44,6 +59,12 @@ function ChangeCurrentWord() {
 }
 //Function to update Current Word as Current Letters change
 
+
+
+
+var Lives = 6; 
+//Number of mistakes the player can still make (initially 6)
+
 var WrongLetters = [];
 //Letters previously guessed but incorrect
 
@@ -57,7 +78,13 @@ function ChangeWrong(){
     }
 }
 
+
+
+////////////////////////////////////////////////////////////////////
 //Below is the code that makes the game work
+
+
+//STARTING POINT!!:
 for (x=0; x<LettersToGuess.length; x++){
     if (LettersToGuess[x] == " "){
         CurrentLetters.push (" ");
@@ -71,17 +98,15 @@ for (x=0; x<LettersToGuess.length; x++){
 ChangeCurrentWord();
 //Update Current state of guess to starting point
 
-document.getElementById("RightLetters").innerHTML = "The word is : " + CurrentWord;
+document.getElementById("RightLettersText").innerHTML = CurrentWord;
 //Display number of letters to guess
+console.log(WordToGuess);
 
-
-console.log(CurrentWord);
-console.log(LettersToGuess);
-//debugging
-
+//CLICK FUNCTION WHEN GUESSING (ACTUAL GAMEPLAY)
 document.getElementById("try").addEventListener("click", () =>{
 //create click function to check letter currently being guessed  
 
+//EXCEPTIONS
     if (document.getElementById("InputText").value == ""){
         alert ("Give me a letter!");
     }
@@ -91,7 +116,8 @@ document.getElementById("try").addEventListener("click", () =>{
         alert ("You already said that!");
     }
     //If already used letter (correct or wrong), alert.
-    
+
+//CORRECT GUESS
     else if (WordToGuess.includes(document.getElementById("InputText").value.toUpperCase())){
     //If letter not used yet, when the word has the letter the player guessed, do this
 
@@ -104,15 +130,13 @@ document.getElementById("try").addEventListener("click", () =>{
             }
             // add newly guessed letter to current state of guessed word
         };
-        console.log(CurrentWord);
-        console.log(CurrentLetters);
-        console.log(LettersToGuess);
-        //debugging
-        document.getElementById("RightLetters").innerHTML = "The word is : " + CurrentWord;
+        
+        document.getElementById("RightLettersText").innerHTML = CurrentWord;
         // update state of word to guess
           
     }
 
+//WRONG GUESS
     else {
     // if letter not used, and the word doesn't have the guessed letter, do this
 
@@ -120,7 +144,17 @@ document.getElementById("try").addEventListener("click", () =>{
         // add guessed letter to list of mistakes
         ChangeWrong();
         //update list of mistakes
-        document.getElementById("WrongLetters").innerHTML = "You already tried : " + Wrong;
+
+        Lives--;
+        if (Lives < 1) {
+            document.getElementById("Lives").innerHTML ="You can only make " + Lives + " more mistakes!";
+        }
+        else {
+            document.getElementById("Lives").innerHTML ="You can only make " + Lives + " more mistake!";
+        }
+        //update life counter
+
+        document.getElementById("WrongLettersText").innerHTML = Wrong;
         // update list of mistakes shown on screen
 
         if (WrongLetters.length == 1){
@@ -161,7 +195,6 @@ document.getElementById("try").addEventListener("click", () =>{
             return false;
         }
         if (i==LettersToGuess.length-1){
-            document.getElementById("Champion").innerHTML = WordToGuess;
             document.getElementById("game").style.display ="none"
             document.getElementById("TransitionVictory").style.display = "block";
         }
@@ -169,10 +202,8 @@ document.getElementById("try").addEventListener("click", () =>{
     //Check if won (if any letter doesn't match, loop ends. when reaching last letter , win transition screen.)
 
     document.getElementById("ToVictory").addEventListener("click",() => {
-        document.getElementById("Champion").innerHTML = WordToGuess;
         document.getElementById("TransitionVictory").style.display = "none";
         document.getElementById("Victory").style.display = "block";
     });
     //display win screen with button to quit game (close tab) or try again (refresh)
 });
-// need to fix message when succeeded (DOESNT WORK: win if one letter correct), update readme, finishing touches
