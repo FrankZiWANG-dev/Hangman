@@ -1,0 +1,190 @@
+body {
+  font-family: 'Benne', serif;
+  color: #EDB852;
+  text-shadow: -1px -1px #5A3E1E;
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: large;
+  background-image: url("https://raw.githubusercontent.com/FrankZiWANG-dev/Hangman/main/Assets/LoL-Background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#instructions {
+  background-color: #404138;
+  border: 2px solid #EDB852;
+  line-height: 30px;
+}
+
+button {
+  font-family: 'Benne', serif;
+  color: #5A3E1E;
+  background-color: #EDB852;
+  border: 3px solid #5A3E1E;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: large;
+  margin: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  #game {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    -ms-grid-rows: 25% 25% 50%;
+        grid-template-rows: 25% 25% 50%;
+    grid-gap: 20px;
+    background-color: #404138;
+    padding: 15px;
+    margin: 20px;
+    border: 3px solid #EDB852;
+    border-radius: 5px;
+    min-height: 450px;
+  }
+  img {
+    max-width: 200px;
+    max-height: 300px;
+    margin: 20px;
+  }
+  .WrongLetters {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1 / 2;
+    padding: 3px;
+    margin: auto;
+  }
+  .RightLetters {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2 / 3;
+    padding: 3px;
+    margin: auto;
+  }
+  .hangman {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1 / 2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    grid-row: 1 / 4;
+    padding: 3px;
+    margin: auto;
+  }
+  .input {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3 / 4;
+    padding: 3px;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #game {
+    display: -ms-inline-grid;
+    display: inline-grid;
+    -ms-grid-rows: 40% 20% 20% 20%;
+        grid-template-rows: 40% 20% 20% 20%;
+    grid-gap: 5px;
+    background-color: #404138;
+    padding: 2px;
+    border: 2px solid #EDB852;
+    border-radius: 5px;
+    max-height: 480px;
+    max-width: 320px;
+  }
+  img {
+    max-width: 100px;
+    max-height: 140px;
+    margin: 2px;
+    margin: auto;
+  }
+  .WrongLetters {
+    -ms-grid-row: 4;
+    -ms-grid-row-span: 1;
+    grid-row: 4 / 5;
+    padding: 1px;
+    margin: auto;
+  }
+  .RightLetters {
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
+    grid-row: 2 / 3;
+    padding: 1px;
+    margin: auto;
+  }
+  .hangman {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1 / 2;
+    padding: 1px;
+    margin: auto;
+  }
+  .input {
+    -ms-grid-row: 3;
+    -ms-grid-row-span: 1;
+    grid-row: 3 / 4;
+    padding: 1px;
+    margin: auto;
+  }
+}
+
+#TransitionDefeat {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: radial-gradient(#404138, #993300, #990033, black);
+  padding: 20px;
+}
+
+#6 {
+  border-radius: 60%;
+  -webkit-box-shadow: 0px 0px 5px 2px black;
+          box-shadow: 0px 0px 5px 2px black;
+}
+
+#Defeat {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: radial-gradient(#404138, #993300, #990033, black);
+  padding: 20px;
+}
+
+#TransitionVictory {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: radial-gradient(white, #00cc66, #006600);
+  padding: 20px;
+}
+
+#Lightbulb {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+#Victory {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: radial-gradient(white, #00cc66, #006600);
+  padding: 20px;
+}
+/*# sourceMappingURL=style.css.map */
