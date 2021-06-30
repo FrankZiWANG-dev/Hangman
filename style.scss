@@ -23,7 +23,7 @@ body {
     line-height: 30px;
 }
 
-@mixin ButtonStyle {
+button {
     font-family: 'Benne', serif;
 
     color: #5A3E1E;
@@ -36,12 +36,6 @@ body {
     font-size: large;
 
     margin: 5px;
-}
-
-#InstructionsButton {
-    
-    @include ButtonStyle();
-    
 }
 
 #game {
@@ -91,7 +85,42 @@ img {
     margin: auto;
 }
 
-.try {
-    @include ButtonStyle();
+
+@mixin defeat {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: radial-gradient(#404138, #993300, #990033, black) ;
+    padding: 20px;
 }
 
+#TransitionDefeat {
+    @include defeat;
+}
+
+#6{
+    border-radius: 60%;
+    box-shadow: 0px 0px 5px 2px black;
+}
+
+#Defeat {
+    @include defeat;
+}
+
+@mixin victory {
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: radial-gradient(white, #00cc66,  #006600) ;
+    padding: 20px;
+}
+
+#TransitionVictory {
+    @include victory();
+}
+
+#Victory {
+    @include victory();
+}

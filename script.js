@@ -5,7 +5,12 @@ document.getElementById("2").style.display = "none";
 document.getElementById("3").style.display = "none";
 document.getElementById("4").style.display = "none";
 document.getElementById("5").style.display = "none";
-document.getElementById("6").style.display = "none";
+document.getElementById("TransitionDefeat").style.display = "none";
+document.getElementById("Defeat").style.display = "none";
+document.getElementById("TransitionVictory").style.display = "none";
+document.getElementById("Victory").style.display = "none";
+//hidden boxes and images
+
 function toggleText() {
     var text = document.getElementById("instructions");
     if (text.style.display === "none") {
@@ -76,9 +81,22 @@ console.log(LettersToGuess);
 
 document.getElementById("try").addEventListener("click", () =>{
 //create click function to check letter currently being guessed  
-    if (WordToGuess.includes(document.getElementById("InputText").value.toUpperCase())){
-    //When the word has the letter the player guessed
+
+    if (document.getElementById("InputText").value == ""){
+        alert ("Give me a letter!");
+    }
+    //If no letter put in, alert.
+    
+    if ((WrongLetters.includes(document.getElementById("InputText").value.toUpperCase())) || (CurrentLetters.includes(document.getElementById("InputText").value.toUpperCase()))){
+        alert ("You already said that!");
+    }
+    //If already used letter (correct or wrong), alert.
+    
+    else if (WordToGuess.includes(document.getElementById("InputText").value.toUpperCase())){
+    //If letter not used yet, when the word has the letter the player guessed, do this
+
         for (i = 0; i < LettersToGuess.length; i++){ 
+
             if (LettersToGuess[i] === document.getElementById("InputText").value.toUpperCase()) {  
                 CurrentLetters[i] = document.getElementById("InputText").value.toUpperCase();
                 ChangeCurrentWord();
@@ -96,7 +114,8 @@ document.getElementById("try").addEventListener("click", () =>{
     }
 
     else {
-    // if the word doesn't have the guessed letter
+    // if letter not used, and the word doesn't have the guessed letter, do this
+
         WrongLetters.push(document.getElementById("InputText").value.toUpperCase());
         // add guessed letter to list of mistakes
         ChangeWrong();
@@ -125,22 +144,35 @@ document.getElementById("try").addEventListener("click", () =>{
             document.getElementById("5").style.display = "block";
         }
         if (WrongLetters.length == 6){
-            document.getElementById("5").style.display = "none";
-            document.getElementById("6").style.display = "block";
-            alert("You lose!");
+            document.getElementById("game").style.display ="none"
+            document.getElementById("TransitionDefeat").style.display = "block";
         }
-        //display an image according to number of wrong tries and alert lose when lost
+        //display an image according to number of wrong tries and transition screen when lost
     };
 
-    // for (i = 0; i < LettersToGuess.length; i++) {
-	// 	if (CurrentLetters[i] !== LettersToGuess[i]) {
-    //         break;
-    //     }
-    //     else {
-    //         alert("You win!");
-    //     }
-	// }  
-    //Check if won (if any letter doesn't match, no loop. if last letter matches, win.)
+    document.getElementById("ToDefeat").addEventListener("click",() => {
+        document.getElementById("TransitionDefeat").style.display = "none";
+        document.getElementById("Defeat").style.display = "block";
+    });
+    //display lost screen with button to quit game (close tab) or try again (refresh)
 
+    for (i = 0; i < LettersToGuess.length; i++) {
+		if (CurrentLetters[i] !== LettersToGuess[i]) {
+            return false;
+        }
+        if (i==LettersToGuess.length-1){
+            document.getElementById("Champion").innerHTML = WordToGuess;
+            document.getElementById("game").style.display ="none"
+            document.getElementById("TransitionVictory").style.display = "block";
+        }
+	}  
+    //Check if won (if any letter doesn't match, loop ends. when reaching last letter , win transition screen.)
+
+    document.getElementById("ToVictory").addEventListener("click",() => {
+        document.getElementById("Champion").innerHTML = WordToGuess;
+        document.getElementById("TransitionVictory").style.display = "none";
+        document.getElementById("Victory").style.display = "block";
+    });
+    //display win screen with button to quit game (close tab) or try again (refresh)
 });
 // need to fix message when succeeded (DOESNT WORK: win if one letter correct), update readme, finishing touches

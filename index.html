@@ -45,7 +45,6 @@
             <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/3.png?raw=true" id="3" alt="Teemo-stage-3">
             <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/4.png?raw=true" id="4" alt="Teemo-stage-4">
             <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/5.png?raw=true" id="5" alt="Teemo-stage-5">
-            <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/6.png?raw=true" id="6" alt="Teemo-stage-6">
             
         </div>
 
@@ -57,6 +56,41 @@
 
     </div>
 
+    <div id ="TransitionDefeat">
+        Well, well, well... <br/>
+        The champion I was thinking about was <span id="Champion"></span>...<br/>
+        However, it looks like you ran out of guesses... <br/>
+        <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/6.png?raw=true" id="6" alt="Teemo-stage-6"><br/>
+        <button id="ToDefeat"> Uh-oh... </button>
+    
+    </div>
+
+    <div id ="Defeat">
+    COME HERE!!! <br/>
+    I will enjoy devouring your soul!! <br/>
+    <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/Demon-Teemo.jpg?raw=true" id="Demon-Teemo" alt="Demon-Teemo"><br/>
+        <button onclick="window.location.reload();" id="again"> "Double or nothing, Teemo!"</button>
+        <button onclick="self.close()" id="close">Run away!!</button>
+
+    </div>
+
+    <div id ="TransitionVictory">
+        After giving a few letters to Teemo, you figure out the last letter! <br/>
+        The champion Teemo is thinking about is <span id="Champion"></span>!! <br/>
+        <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/6.png?raw=true" id="6" alt="Teemo-stage-6"><br/>
+        <button id="ToVictory"> Yell out the champion's name! </button>
+    
+    </div>
+
+    <div id ="Victory">
+    Upon hearing the answer to his riddle, Teemo's smile disappears from his face. <br/>
+    "Very well... I am a Yordle of my word: you are free to go. <br/>
+    But know this! I'll get you next time...<br/>
+    <img src="https://github.com/FrankZiWANG-dev/Hangman/blob/main/Assets/Demon-Teemo.jpg?raw=true" id="Demon-Teemo" alt="Demon-Teemo"><br/>
+        <button onclick="window.location.reload();" id="again"> "Why wait, Teemo?"</button>
+        <button onclick="self.close()" id="close">No way!! Run away!</button>
+
+    </div>
 
     <script type="text/javascript" src="script.js"></script>
 </body>
