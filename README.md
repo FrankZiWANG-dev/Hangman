@@ -18,13 +18,28 @@ A word needs to be generated.
 Player must be able to guess letters.
 Match between letters guessed and letters of word must be checked (=> word decomposed into array of letters, empty array for guess).
 If match, all iterations of letter must be displayed (in guess array).
-If no match, one life must be substracted. (counter of some sort)
-If lives reach zero, player notified, word displayed, offer to play again.
+If no match, one life must be substracted. (counter of some sort, with hangman image changing)
+If lives reach zero, player notified, word displayed, offer to play again. Same if player won.
 
+Instructions were added for clarity. They can be toggled on and off using a button.
+All guessing attempts go through filling in a text box, then clicking the button "Try" below.
+All images, as well as victory and defeat screens are initially hidden, and displayed only when the situation requires it.
+
+## Artistic choices
+The game is based on the game League of Legends, for the colors and images used, but also the "story".
+In the community of the game, the character Teemo is quite despised, and jokingly dubbed the Devil.
+In this version of Hangman, the hangman character has been replaced by Teemo, who will appear gradually, every time the player guesses a letter wrong.
+Flavor texts have been added in the instructions, victory and defeat screens to stay in the lore.
+
+## Technologies
+The website was designed using HTML, CSS (SASS) and Javascript. The code editor used was VS CODE.
+The images used were the following:
+- An original artwork from user NestKeeper on the website DeviantArt, modified using Paint 3D to create the Hangman and the first victory screen.
+- A lightbult image from user Ra20Ga on the website similarpng.com, for the first victory screen.
+- An original artwork from user Instagram on the website Pikpng.com, for the second victory screen.
+- A screenshot of the Little Devil Teemo skin from the game League of Legends itself.
+All the names to guess are champions from the game League of Legends, all rights reserved to Riot Games.
 
 ## Author 
 Website by Frank WANG.
 All rights of the images and names used regarding the game League of Legends are owned by Riot Games.
-
-let Champions = ["Aatrox","Ahri","Akali","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","Aurelion Sol","Azir","Bard","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","Cho Gath","Corki","Darius","Diana","Dr Mundo","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan IV","Jax","Jayce","Jhin","Jinx","Kai Sa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","Kha Zix","Kindred","Kled","Kog Maw","LeBlanc","Lee Sin","Leona","Lillia","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","Master Yi","Miss Fortune","Mordekaiser","Morgana","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu and Willump","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","Rek Sai","Rell","Renekton","Rengar","Riven","Rumble","Ryze","Samira","Sejuani","Senna","Seraphine","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","Tahm Kench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","Twisted Fate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","Vel Koz","Vi","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","Xin Zhao","Yasuo","Yone","Yorick","Yuumi","Zac","Zed","Ziggs","Zilean","Zoe","Zyra"];
-//Array with possible words
