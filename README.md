@@ -2,6 +2,7 @@
 
 ## Introduction
 This project is a hangman game, hosted on a single page website, using Javascript, HTML and SASS / CSS.
+https://frankziwang-dev.github.io/Hangman/
 
 ## Game
 The hangman game is a classic game of guessing a word by guessing each letter within a limited amount of tries.
